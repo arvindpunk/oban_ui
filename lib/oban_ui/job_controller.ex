@@ -14,17 +14,17 @@ defmodule ObanUi.JobController do
     |> ObanUi.Job.changeset(%{"state" => "discarded"})
     |> Repo.update()
 
-    redirect(conn,
-      to: :"#{Application.get_env(:oban_ui, :app_name)}.Router.Helpers".job_path(conn, :index)
-    )
+    # redirect(conn,
+    #   to: :"#{Application.get_env(:oban_ui, :app_name)}.Router.Helpers".job_path(conn, :index)
+    # )
   end
 
   def delete(conn, %{"job_id" => id}) do
     Repo.get(ObanUi.Job, id) |> Repo.delete()
 
-    redirect(conn,
-      to: :"#{Application.get_env(:oban_ui, :app_name)}.Router.Helpers".job_path(conn, :index)
-    )
+    # redirect(conn,
+    #   to: :"#{Application.get_env(:oban_ui, :app_name)}.Router.Helpers".job_path(conn, :index)
+    # )
   end
 
   def available(conn, _params) do
